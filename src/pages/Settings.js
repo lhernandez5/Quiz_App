@@ -1,12 +1,12 @@
-import { Button, CircularProgress, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import SelectField from "../Components/SelectField";
 import TextFieldComp from "../Components/TextFieldComp";
 import useAxios from "../hooks/useAxios";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: "/api_category.php" });
-  console.log(response);
+  const history = useNavigate();
 
   if (loading) {
     return (
@@ -25,26 +25,36 @@ const Settings = () => {
   }
 
   const difficultyOptions = [
-    { id: "easy", name: "Easy"},
-    { id: "medium", name: "Medium"},
-    { id: "hard", name: "Hard"}
+    { id: "easy", name: "Easy" },
+    { id: "medium", name: "Medium" },
+    { id: "hard", name: "Hard" },
   ];
 
   const typeOptions = [
-    { id: "multiple", name: "Multiple Choice"},
-    { id: "boolean", name: "True/False"}
-  ]
+    { id: "multiple", name: "Multiple Choice" },
+    { id: "boolean", name: "True/False" },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    history("/questions");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <SelectField options={response.trivia_categories} label="Category" />
-      <SelectField options={difficultyOptions} label="Difficulty" />
-      <SelectField options={typeOptions} label="Type" />
-      <TextFieldComp label="Number of Questions" />
+      <Typography variant="h2" fontWeight="bold">
+        Quiz App
+      </Typography>
+      <SelectField
+        options={response.trivia_categories ? response.trivia_categories : ""}
+        label="Category"
+      />
+      <SelectField
+        options={difficultyOptions ? difficultyOptions : ""}
+        label="Difficulty"
+      />
+      <SelectField options={typeOptions ? typeOptions : ""} label="Type" />
+      <TextFieldComp />
       <Box mt={3} width="100%">
         <Button fullWidth variant="contained" type="submit">
           Get Started

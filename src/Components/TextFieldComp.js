@@ -1,18 +1,27 @@
 import { Box, FormControl, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { handleAmountChange } from "../redux/actions";
 
-const TextFieldComp = (props) => {
-  const { label } = props;
-  const handleChange = () => {};
+const TextFieldComp = () => {
+  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    const input = e.target.value;
+    const numericInput = input.replace(/[^0-9]/g, "");
+    setValue(numericInput);
+    dispatch(handleAmountChange(input));
+  };
 
   return (
     <Box mt={3} width="100%">
       <FormControl fullWidth size="small">
         <TextField
-          onChanges={handleChange}
-          variant="outlined"
-          label={label}
-          type="number"
+          onChange={handleChange}
+          label="Number of Questions"
+          type="text"
+          value={value}
           size="small"
         />
       </FormControl>
