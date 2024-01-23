@@ -10,8 +10,12 @@ const TextFieldComp = () => {
   const handleChange = (e) => {
     const input = e.target.value;
     const numericInput = input.replace(/[^0-9]/g, "");
-    setValue(numericInput);
-    dispatch(handleAmountChange(input));
+    if (numericInput <= 50) {
+      setValue(numericInput);
+      dispatch(handleAmountChange(input));
+    } else {
+      alert("The number of questions has to be less than 50.");
+    }
   };
 
   return (
