@@ -45,6 +45,10 @@ const Settings = () => {
       <Typography variant="h3" fontWeight="bold">
         Build Your Own Trivia Quiz
       </Typography>
+      <Typography variant="h6"mt={3} >
+        This app allows you to build a trivia quiz based on the selections you make below. 
+        If you leave all the fields blank the selections will be made at random. 
+      </Typography>
       <SelectField
         options={response.trivia_categories ? response.trivia_categories : ""}
         label="Category"
