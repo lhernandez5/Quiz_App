@@ -21,8 +21,19 @@ const Questions = () => {
 
   const history = useNavigate();
   const dispatch = useDispatch();
-  let apiUrl = `/api.php?amount=${amount_of_questions}&category=${question_category}&difficulty=${question_difficulty}&type=${question_type}`;
-  const { response, loading } = useAxios({ url: apiUrl });
+  let apiUrl = `/api.php?amount=${amount_of_questions}`;
+
+  if (question_category) {
+    apiUrl = apiUrl.concat(`&category=${question_category}`);
+  }
+  if (question_difficulty) {
+    apiUrl = apiUrl.concat(`&difficulty=${question_difficulty}`);
+  }
+  if (question_type) {
+    apiUrl = apiUrl.concat(`&type=${question_type}`);
+  }
+
+  const { response, loading, error } = useAxios({ url: apiUrl });
   const [questionIndex, setQuestionIndex] = useState(0);
   const [options, setOptions] = useState([]);
 
@@ -38,6 +49,11 @@ const Questions = () => {
       setOptions(answers);
     }
   }, [response, questionIndex]);
+
+  if (error) {
+    console.log("THIS IS THE ERROR: " + error);
+    history("/");
+  }
 
   if (loading) {
     return (
@@ -65,7 +81,10 @@ const Questions = () => {
       <Box>
         <Typography variant="h4">Question {questionIndex + 1}</Typography>
         <Typography mt={5}>
-          {decode(response.results[questionIndex].question)}
+          {response.results[questionIndex] !== undefined &&
+          response.results !== null
+            ? decode(response.results[questionIndex].question)
+            : history("/issue")}
         </Typography>
         <Box mt={5}>
           Score: {score}/{response.results.length}

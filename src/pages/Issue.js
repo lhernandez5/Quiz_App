@@ -8,7 +8,9 @@ const Issue = () => {
   };
   return (
     <Box mt={30}>
-      <Typography>Something sent wrong</Typography>
+      <Typography>
+        Something sent wrong or there aren't enough questions. Please try again.
+      </Typography>
       <Button onClick={handleBackToSettings} variant="outlined">
         Back to settings!
       </Button>
