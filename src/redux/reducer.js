@@ -4,7 +4,7 @@ import {
   CHANGE_SCORE,
   CHANGE_TYPE,
   CHANGE_AMOUNT_OF_QUESTIONS,
-} from "./actionsTypes";
+} from "./ActionsTypes";
 
 const initialState = {
   question_category: "",

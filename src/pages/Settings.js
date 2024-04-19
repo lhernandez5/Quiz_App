@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
-import SelectField from "../Components/SelectField";
-import TextFieldComp from "../Components/TextFieldComp";
-import useAxios from "../hooks/useAxios";
+import SelectField from "../components/SelectField";
+import TextFieldComp from "../components/TextFieldComp";
+import useAxios from "../hooks/UseAxios";
 import { useNavigate } from "react-router-dom";
 
 const Settings = () => {

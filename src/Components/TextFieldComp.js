@@ -1,7 +1,7 @@
 import { Box, FormControl, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { handleAmountChange } from "../redux/actions";
+import { handleAmountChange } from "../redux/Actions";
 
 const TextFieldComp = () => {
   const dispatch = useDispatch();
