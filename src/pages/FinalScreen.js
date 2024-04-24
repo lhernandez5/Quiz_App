@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { handleAmountChange, handleScoreChange } from "../redux/Actions";
+import { handleAmountChange, handleScoreChange } from "../Redux/Actions";
 
 const FinalScreen = () => {
   const { amount_of_questions, score } = useSelector((state) => state);

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Settings from "./pages/Settings";
-import Questions from "./pages/Questions";
-import FinalScreen from "./pages/FinalScreen";
+import Settings from "./Pages/Settings";
+import Questions from "./Pages/Questions";
+import FinalScreen from "./Pages/FinalScreen";
 import { Container } from "@mui/material";
 import { Box } from "@mui/material";
-import Issue from "./pages/Issue";
+import Issue from "./Pages/Issue";
 
 function App() {
   return (

@@ -1,9 +1,9 @@
 import { Box, Typography, Button, CircularProgress } from "@mui/material";
-import useAxios from "../hooks/UseAxios";
+import useAxios from "../Hooks/UseAxios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { handleScoreChange } from "../redux/Actions";
+import { handleScoreChange } from "../Redux/Actions";
 import { decode } from "html-entities";
 
 const getRandomInt = (max) => {

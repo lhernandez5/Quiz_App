@@ -1,8 +1,8 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
-import SelectField from "../components/SelectField";
-import TextFieldComp from "../components/TextFieldComp";
-import useAxios from "../hooks/UseAxios";
+import SelectField from "../SelectField/SelectField";
+import useAxios from "../Hooks/UseAxios";
 import { useNavigate } from "react-router-dom";
+import TextFieldCompute from "../TextFieldCompute/TextFieldCompute";
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: "/api_category.php" });
@@ -59,7 +59,7 @@ const Settings = () => {
         label="Difficulty"
       />
       <SelectField options={typeOptions ? typeOptions : ""} label="Type" />
-      <TextFieldComp />
+      <TextFieldCompute />
       <Box mt={3} width="100%">
         <Button fullWidth variant="contained" type="submit">
           Get Started
